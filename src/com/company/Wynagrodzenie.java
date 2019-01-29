@@ -25,12 +25,10 @@ public class Wynagrodzenie {
             System.out.println("Podaj nadgodziny");
             Scanner sc = new Scanner(System.in);
             int nadgodziny = sc.nextInt();
-            if (nadgodziny <= 20) {
+            if (nadgodziny <= 20 && nadgodziny >= 1) {
                 wynagrodzenie = PLACA_MINIMALNA * NORMA_TYGODNIOWA + (nadgodziny * PLACA_MINIMALNA * NADGODZINY_RATE);
                 System.out.println("Wynagrodzenie z nadgodzinami: " + wynagrodzenie);
             }
-            else System.out.println("Podano wicej niż 20 nadgodzin, idź do domu");
+            else System.out.println("Podano nieprawidłową ilość nadgodzin. Podaj liczbę od 1 do 20");
         }
-
-
 }
