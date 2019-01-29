@@ -1,29 +1,36 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Wynagrodzenie {
 
     Pracownik pracownik;
-    private static final int placaMinimalna = 12;
-    private static final int normaTygodniowa= 40;
-    private static final double nadgodzinyRate= 1.5;
-    private double nadgodziny;
+    private double wynagrodzenie;
+    private static final int PLACA_MINIMALNA = 12;
+    private static final int NORMA_TYGODNIOWA= 40;
+    private static final double NADGODZINY_RATE= 1.5;
 
 
-    public Wynagrodzenie(Pracownik pracownik, double nadgodziny) {
+
+    public Wynagrodzenie(Pracownik pracownik) {
         this.pracownik = pracownik;
-        this.nadgodziny = nadgodziny;
     }
 
     public void obliczWynarodzenieDzienne(){
-        double wynagrodzenie;
-        if (normaTygodniowa == 40) {
-            wynagrodzenie = placaMinimalna * normaTygodniowa;
+
+            wynagrodzenie = PLACA_MINIMALNA * NORMA_TYGODNIOWA;
             System.out.println("Bazowe wynagrodzenie: " + wynagrodzenie);
+
+
+            System.out.println("Podaj nadgodziny");
+            Scanner sc = new Scanner(System.in);
+            int nadgodziny = sc.nextInt();
+            if (nadgodziny <= 20) {
+                wynagrodzenie = PLACA_MINIMALNA * NORMA_TYGODNIOWA + (nadgodziny * PLACA_MINIMALNA * NADGODZINY_RATE);
+                System.out.println("Wynagrodzenie z nadgodzinami: " + wynagrodzenie);
+            }
+            else System.out.println("Podano wicej niż 20 nadgodzin, idź do domu");
         }
-        if (normaTygodniowa == 40 && nadgodziny <= 20){
-            wynagrodzenie = placaMinimalna * normaTygodniowa + (nadgodziny * placaMinimalna * nadgodzinyRate);
-            System.out.println("Wynagrodzenie z nadgodzinami: " + wynagrodzenie);
-        }
-        else System.out.println("Podano wicej niż 20 nadgodzin, idź do domu");
-    }
+
+
 }

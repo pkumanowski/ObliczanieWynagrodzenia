@@ -5,7 +5,7 @@ public class TestMain {
     public static void main(String[] args) {
 
         Pracownik pracownik = new Pracownik("Tomasz");
-        Wynagrodzenie wynagrodzenie = new Wynagrodzenie(pracownik, 18);
+        Wynagrodzenie wynagrodzenie = new Wynagrodzenie(pracownik);
         wynagrodzenie.obliczWynarodzenieDzienne();
     }
 }
